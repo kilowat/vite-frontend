@@ -26,6 +26,7 @@ export default defineConfig({
     liveReload([__dirname + "src/*.html"]),
     handlebars({
       context(pagePath) {
+
         return pageData[pagePath];
       },
       partialDirectory: path.resolve(__dirname, "src/html_parts"),
@@ -41,9 +42,9 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       input: {
+        ...getHtmlPages(),
         styles: path.resolve(__dirname, "src/styles/module.scss"),
         scripts: path.resolve(__dirname, "src/js/main.js"),
-        ...getHtmlPages(),
       },
       output: {
         entryFileNames: `${buildFolder}/js/[name].js`,
@@ -55,6 +56,11 @@ export default defineConfig({
         },
       },
     },
+    /*
+    watch: {
+      // https://rollupjs.org/configuration-options/#watch
+    },
+    */
   },
   server: {
     strictPort: true,

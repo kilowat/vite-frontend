@@ -15,5 +15,8 @@
     "vite": "^4.4.4",
     "vite-plugin-handlebars": "^1.6.0",
     "vite-plugin-live-reload": "^3.0.2"
+  },
+  "dependencies": {
+    "lit": "^2.7.6"
   }
 }
