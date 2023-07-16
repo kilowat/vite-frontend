@@ -1,15 +1,17 @@
 import {LitElement, css, html} from 'lit';
-
+import { globalStyle } from '../utils/style-loader';
 export class MyButton extends LitElement {
   static properties = {
     name: {},
   };
   // Define scoped styles right with your component, in plain CSS
-  static styles = css`
-    :host {
-      color: blue;
-    }
-  `;
+  static get styles() {
+    return [
+      globalStyle,
+      css`
+      `
+    ];
+  }
 
   constructor() {
     super();
@@ -20,7 +22,7 @@ export class MyButton extends LitElement {
   // Render the UI as a function of component state
   render() {
     return html`
-    <button>
+    <button class="btn">
       <slot></slot>
     </button>`;
   }
